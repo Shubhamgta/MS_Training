@@ -4,12 +4,13 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-//mark class as an Entity   
+
+//mark class as an Entity 
 @Entity
-// defining class name as Table name
+//defining class name as Table name
 @Table
 public class Books {
-	// Defining book id as primary key
+//Defining book id as primary key
 	@Id
 	@Column
 	private int bookid;
@@ -49,9 +50,9 @@ public class Books {
 	}
 
 	public void setPrice(int price) {
-//		if (price<0){
-//			throw new IllegalException("Price is Incorrect");
-//		}
+		if(price <= 0) {
+			throw new IllegalStateException("price is wrong");
+		}
 		this.price = price;
 	}
 }
